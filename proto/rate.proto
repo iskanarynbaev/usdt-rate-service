@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package rate;
+
+option go_package = "usdt-rate-service/internal/grpc;grpc";
+
+message GetRatesRequest {}
+
+message GetRatesResponse {
+  double ask = 1;
+  double bid = 2;
+  string timestamp = 3;
+}
+
+service RateService {
+  rpc GetRates(GetRatesRequest) returns (GetRatesResponse);
+}
